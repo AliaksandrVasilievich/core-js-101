@@ -142,7 +142,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.replaceAll(/[<>]/g, '');
+  return str.replaceAll(/<|>/gi, '');
 }
 
 
@@ -176,7 +176,8 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.replaceAll(';', '\', \n ');
+  return str.replaceAll(/;/g, ', <\\n/>');
+  // return str.split(';').join(', <\n/>');
 }
 
 /**
